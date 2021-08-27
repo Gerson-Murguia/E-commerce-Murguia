@@ -44,6 +44,47 @@ namespace Proyecto05ciclo.Controllers
             }
         }
 
+        public ActionResult Registrarse()
+        {
+            return View(new Usuario() {Nombres = "", Apellidos = "", Correo = "", Password = "", ConfirmarPassword = ""});
+        }
+
+        [HttpPost]
+        public ActionResult Registrarse(string NNombres,string NApellidos,string NCorreo,string NPassword,string NConfirmarPassword)
+        {
+            //Registra a usuarios NO administradores
+
+            Usuario rUsuario = new Usuario()
+            {
+                Nombres = NNombres,
+                Apellidos = NApellidos,
+                Correo = NCorreo,
+                Password = NPassword,
+                ConfirmarPassword = NConfirmarPassword,
+                EsAdministrador = false
+            };
+
+            if (NPassword != NConfirmarPassword)
+            {
+                ViewBag.Error = "Las contraseñas no coinciden";
+                return View(rUsuario);
+            }
+            else
+            {
+                //la id del ultimo usuario registrado(scope identity),
+                //del parametro "respuesta" con direccion output
+                int idusuario_respuesta = UsuarioLogica.Instancia.Registrar(rUsuario);
+                if (idusuario_respuesta==0)
+                {
+                    ViewBag.Error = "Error al registrar";
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+        }
     }
 
 }
