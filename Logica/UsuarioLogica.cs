@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -68,6 +69,38 @@ namespace Proyecto05ciclo.Logica
             return u;
         }
 
+        public int Registrar(Usuario oUsuario)
+        {
+            int respuesta = 0;
+            using (SqlConnection oConexion=new SqlConnection(Conexion.CN))
+            {
+                try
+                {
+                    SqlCommand cmd=new SqlCommand("sp_registrarUsuario",oConexion);
+                    cmd.Parameters.AddWithValue("Nombres", oUsuario.Nombres);
+                    cmd.Parameters.AddWithValue("Apeliidos", oUsuario.Apellidos);
+                    cmd.Parameters.AddWithValue("Correo", oUsuario.Correo);
+                    cmd.Parameters.AddWithValue("Password", oUsuario.Password);
+                    cmd.Parameters.AddWithValue("EsAdministrador", oUsuario.EsAdministrador);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction=ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    //retorna la identidad del ultimo valor insertado
+                    respuesta = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+
+                }
+                catch (Exception e)
+                {
+                    respuesta = 0;
+                }
+            }
+
+            return respuesta;
+        }
 
     }
 }
