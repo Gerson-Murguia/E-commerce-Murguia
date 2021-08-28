@@ -19,6 +19,12 @@ body {
 .bg-dark-x {
     background-color: var(--dark-x);
 }
+.form-control {
+    color: white !important;
+}
+.form-control:focus {
+    background-color: var(--dark-x);
+}
 
 .form-control, .btn {
     min-height: 3.125rem;
@@ -28,3 +34,4 @@ body {
 .foto {
     height: 100vh;
 }
+

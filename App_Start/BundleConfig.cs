@@ -18,7 +18,10 @@ namespace Proyecto05ciclo.App_Start
             ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.min.css",
-                "~/Content/Site.css",
+                "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/cssLogin").Include(
+                "~/Content/bootstrap.min.css",
                 "~/Content/Login.css"));
             bundles.Add(new StyleBundle("~/Content/PluginsCSS").Include(
 
