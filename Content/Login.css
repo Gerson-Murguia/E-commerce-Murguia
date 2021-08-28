@@ -15,16 +15,23 @@ body {
 .bg-dark {
     background-color: var(--dark) !important;
 }
+.card {
+    box-shadow: 0 2px 2px 0 #3e454f !important;
+}
 
 .bg-dark-x {
     background-color: var(--dark-x);
 }
 .form-control {
     color: white !important;
+    background-color: var(--dark-x);
+    border-width: 0px;
 }
 .form-control:focus {
     background-color: var(--dark-x);
-}
+    outline: none;
+    border-color: #86b7fe;
+    }
 
 .form-control, .btn {
     min-height: 3.125rem;
