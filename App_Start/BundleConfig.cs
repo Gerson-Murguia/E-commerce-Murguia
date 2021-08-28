@@ -18,7 +18,8 @@ namespace Proyecto05ciclo.App_Start
             ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.min.css",
-                "~/Content/Site.css"));
+                "~/Content/Site.css",
+                "~/Content/Login.css"));
             bundles.Add(new StyleBundle("~/Content/PluginsCSS").Include(
 
                 ////FUENTE FONTAWESOME

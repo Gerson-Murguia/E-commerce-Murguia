@@ -1,0 +1,30 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root {
+    --dark: #16191c;
+    --dark-x: #1e2126;
+    --light: #FFFFFF;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #fbfdff;
+    background-color: var(--dark-x);
+}
+
+.bg-dark {
+    background-color: var(--dark) !important;
+}
+
+.bg-dark-x {
+    background-color: var(--dark-x);
+}
+
+.form-control, .btn {
+    min-height: 3.125rem;
+    line-height: initial;
+}
+
+.foto {
+    height: 100vh;
+}

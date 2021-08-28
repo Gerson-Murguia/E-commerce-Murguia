@@ -40,6 +40,7 @@ namespace Proyecto05ciclo.Logica
                     SqlCommand cmd= new SqlCommand("sp_obtenerUsuario",oConexion);
                     cmd.Parameters.AddWithValue("Correo", _correo);
                     cmd.Parameters.AddWithValue("Password", _password);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
 
@@ -62,6 +63,7 @@ namespace Proyecto05ciclo.Logica
                 }
                 catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de obtener Usuario " + e.Message);
                     u = null;
                 }
             }

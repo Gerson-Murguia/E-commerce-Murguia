@@ -22,13 +22,13 @@ namespace Proyecto05ciclo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(string NCorreo, string NPassword)
         {
-            Usuario oUsuario=new Usuario();
+            Usuario oUsuario;
 
             oUsuario = UsuarioLogica.Instancia.Obtener(NCorreo, NPassword);
 
             if (oUsuario==null)
             {
-                ViewBag.Error = "Correo o contraseña no correcta";
+                ViewBag.Error = "Correo o contraseña incorrecta";
                 return View();
             }
             FormsAuthentication.SetAuthCookie(oUsuario.Correo,false);
