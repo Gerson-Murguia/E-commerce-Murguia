@@ -80,7 +80,7 @@ namespace Proyecto05ciclo.Logica
                 {
                     SqlCommand cmd=new SqlCommand("sp_registrarUsuario",oConexion);
                     cmd.Parameters.AddWithValue("Nombres", oUsuario.Nombres);
-                    cmd.Parameters.AddWithValue("Apeliidos", oUsuario.Apellidos);
+                    cmd.Parameters.AddWithValue("Apellidos", oUsuario.Apellidos);
                     cmd.Parameters.AddWithValue("Correo", oUsuario.Correo);
                     cmd.Parameters.AddWithValue("Password", oUsuario.Password);
                     cmd.Parameters.AddWithValue("EsAdministrador", oUsuario.EsAdministrador);
@@ -97,6 +97,7 @@ namespace Proyecto05ciclo.Logica
                 }
                 catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de registrar Usuario " + e.Message);
                     respuesta = 0;
                 }
             }

@@ -77,7 +77,7 @@ namespace Proyecto05ciclo.Controllers
                 if (idusuario_respuesta==0)
                 {
                     ViewBag.Error = "Error al registrar";
-                    return View();
+                    return View(rUsuario);
                 }
                 else
                 {
