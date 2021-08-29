@@ -468,6 +468,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logica\CategoriaLogica.cs" />
     <Compile Include="Logica\Conexion.cs" />
     <Compile Include="Logica\UsuarioLogica.cs" />
     <Compile Include="Models\Carrito.cs" />
