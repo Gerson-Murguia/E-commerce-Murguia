@@ -84,6 +84,7 @@ namespace Proyecto05ciclo.Controllers
 
 
         //MARCA AJAX
+        //FALTA TERMINAR
         [HttpGet]
         public JsonResult ListarMarca()
         {
@@ -112,8 +113,7 @@ namespace Proyecto05ciclo.Controllers
         }
 
         //PRODUCTO AJAX
-        //FALTA BASE644
-         [HttpGet]
+        [HttpGet]
         public JsonResult ListarProducto()
         {
             List<Producto> oLista = new List<Producto>();

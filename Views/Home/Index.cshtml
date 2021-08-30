@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>Total Productos</div>
-                    <div id="total-productos" class="fs-4 fw-bold">40</div>
+                    <div id="total-productos" class="fs-4 fw-bold">No Disponible</div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -28,7 +28,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>Total Marcas</div>
-                    <div id="total-marcas" class="fs-4 fw-bold">30</div>
+                    <div id="total-marcas" class="fs-4 fw-bold">No Disponible</div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -57,9 +57,9 @@
 {
     <script>
         $(document).ready(function() {
-            jQuery.ajax({
+                jQuery.ajax({
                 url: '@Url.Action("ListarProducto", "Home")',
-                type: "get",
+                type: "GET",
                 data: null,
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
@@ -78,7 +78,7 @@
 
             jQuery.ajax({
                 url: '@Url.Action("ListarMarca", "Home")',
-                type: "get",
+                type: "GET",
                 data: null,
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
@@ -97,7 +97,7 @@
 
             jQuery.ajax({
                 url: '@Url.Action("ListarCategoria", "Home")',
-                type: "get",
+                type: "GET",
                 data: null,
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
