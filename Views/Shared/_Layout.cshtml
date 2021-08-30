@@ -12,21 +12,22 @@
 </head>
 <!--LAYOUT COMPARTIDO DE ADMINISTRADORES-->
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="#">PERUTEC</a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-        <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Ver Perfil</a></li>
-                    <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Cerrar Sesion</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="#">PERUTEC</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Ver Perfil</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Cerrar Sesion</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!--SIDEBAR NAV-->
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -38,7 +39,7 @@
                         </a>
                         <!--PERFIL DE USUARIO NO IMPLEMENTADO-->
                         <a class="nav-link" href="@Url.Action("Index","Home")">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>Perfil de Usuario
+                            <div class="sb-nav-link-icon"><i class="far fa-user"></i></div>Perfil de Usuario
                         </a>
                         <!---->
                         <div class="sb-sidenav-menu-heading">Gestion</div>

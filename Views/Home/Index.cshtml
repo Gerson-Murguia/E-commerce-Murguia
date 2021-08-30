@@ -7,46 +7,144 @@
     <li class="breadcrumb-item active">Detalle</li>
 </ol>
 <div class="row">
-    <div class="col-4">
+    <div class="col-sm-4">
+        <!--1RA CARD-->
         <div class="card bg-primary text-white mb-4">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>Total Productos</div>
-                    <div id="total-productos">40</div>
+                    <div id="total-productos" class="fs-4 fw-bold">40</div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href="@Url.Action("Producto","Home")">Ver Detalles</a>
+                <a class="small text-white stretched-link" href="@Url.Action("Producto", "Home")">Ver Detalles</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-sm-4">
+        <!--2 CARD-->
         <div class="card bg-warning text-white mb-4">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>Total Marcas</div>
-                    <div id="total-marcas">30</div>
+                    <div id="total-marcas" class="fs-4 fw-bold">30</div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href="@Url.Action("Marca","Home")">Ver Detalles</a>
+                <a class="small text-white stretched-link" href="@Url.Action("Marca", "Home")">Ver Detalles</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-sm-4">
+        <!--3 CARD-->
         <div class="card bg-success text-white mb-4">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>Total Categorias</div>
-                    <div id="total-categorias">34</div>
+                    <div id="total-categorias" class="fs-4 fw-bold">No disponible</div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href="@Url.Action("Categoria","Home")">Ver Detalles</a>
+                <a class="small text-white stretched-link" href="@Url.Action("Categoria", "Home")">Ver Detalles</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
 </div>
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            jQuery.ajax({
+                url: '@Url.Action("ListarProducto", "Home")',
+                type: "get",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function(data) {
+                    if (data.data!=null) {
+                        $("#total-productos").text(data.data.length);
+                    }
+                },
+                error: function(error) {
+                    console.log(error)
+                },
+                beforeSend: function() {
+                    
+                }
+            });
+
+            jQuery.ajax({
+                url: '@Url.Action("ListarMarca", "Home")',
+                type: "get",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function(data) {
+                    if (data.data!=null) {
+                        $("#total-marcas").text(data.data.length);
+                    }
+                },
+                error: function(error) {
+                    console.log(error)
+                },
+                beforeSend: function() {
+                    
+                }
+            });
+
+            jQuery.ajax({
+                url: '@Url.Action("ListarCategoria", "Home")',
+                type: "get",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function(data) {
+                    if (data.data!=null) {
+                        $("#total-categorias").text(data.data.length);
+                    }
+                },
+                error: function(error) {
+                    console.log(error)
+                },
+                beforeSend: function() {
+                    
+                }
+            });
+
+
+        })
+    </script>
+
+
+
+
+}
+
+<!--function ajaxcall(url, data, callback) {
+$.ajax({
+url: url, // server url
+type: 'POST', //POST or GET 
+data: data, // data to send to the controller in ajax format or querystring format
+datatype: 'json',//data que se espera ser devuelta
+beforeSend: function() { //funcion antes de enviar el pedido de data
+alert('sending data');
+// do some loading options
+},
+success: function(data) {
+callback(data); // return data in callback
+},
+ 
+complete: function() {
+alert('ajax call complete');
+// success alerts
+},
+ 
+error: function(xhr, status, error) {
+alert(xhr.responseText); // error occur 
+}
+ 
+});
+}-->
