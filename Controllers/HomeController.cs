@@ -13,6 +13,10 @@ namespace Proyecto05ciclo.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            if (Session["Usuario"]==null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
