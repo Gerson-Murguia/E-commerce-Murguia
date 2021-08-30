@@ -40,6 +40,7 @@ namespace Proyecto05ciclo.Controllers
             }
             else
             {
+                //TEMPORAL, DEBE SER controller Tienda PERO NO ESTA CREADA AUN
                 return RedirectToAction("Index", "Tienda");
             }
         }
