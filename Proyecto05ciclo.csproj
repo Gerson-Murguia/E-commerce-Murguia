@@ -471,6 +471,7 @@
     </Compile>
     <Compile Include="Logica\CategoriaLogica.cs" />
     <Compile Include="Logica\Conexion.cs" />
+    <Compile Include="Logica\MarcaLogica.cs" />
     <Compile Include="Logica\UsuarioLogica.cs" />
     <Compile Include="Models\Carrito.cs" />
     <Compile Include="Models\Categoria.cs" />
