@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto05ciclo.Models;
 using Proyecto05ciclo.Logica;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Proyecto05ciclo.Controllers
 {
@@ -94,6 +96,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult GuardarMarca(Marca oMarca)
         {
             bool respuesta = false;
+            //PORQUE IDMARCA ES 0? EN DONDE SE LE ASIGNA
             respuesta = (oMarca.IdMarca == 0)
                 ? MarcaLogica.Instancia.Registrar(oMarca)
                 : MarcaLogica.Instancia.Modificar(oMarca);
@@ -109,5 +112,105 @@ namespace Proyecto05ciclo.Controllers
         }
 
         //PRODUCTO AJAX
+        //FALTA BASE644
+         [HttpGet]
+        public JsonResult ListarProducto()
+        {
+            List<Producto> oLista = new List<Producto>();
+
+            oLista = ProductoLogica.Instancia.Listar();
+            //para cada producto en la lista es remplazado por productos con mas datos aptos para frontend json
+            oLista = (from o in oLista
+                      select new Producto()
+                      {
+                          IdProducto = o.IdProducto,
+                          Nombre = o.Nombre,
+                          Descripcion = o.Descripcion,
+                          oMarca = o.oMarca,
+                          oCategoria = o.oCategoria,
+                          Precio = o.Precio,
+                          Stock = o.Stock,
+                          RutaImagen = o.RutaImagen,
+                          base64 = utilidades.convertirBase64(Server.MapPath(o.RutaImagen)),
+                          //devuelve la extension con .,con replace se cambia a ninguno
+                          extension = Path.GetExtension(o.RutaImagen).Replace(".", ""),
+                          Activo = o.Activo
+                      }).ToList();
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GuardarProducto(string objeto, HttpPostedFileBase imagenArchivo)
+        {
+
+            Response oresponse = new Response() { resultado = true, mensaje = "" };
+
+            try
+            {
+                Producto oProducto = new Producto();
+
+                //Deserializa el string objeto pasado en una clase .NET Producto
+                oProducto = JsonConvert.DeserializeObject<Producto>(objeto);
+
+                string GuardarEnRuta = "~/Imagenes/Productos/";
+                string physicalPath = Server.MapPath("~/Imagenes/Productos");
+
+                //Si el directoria especificado no existe, se crea
+                if (!Directory.Exists(physicalPath))
+                    Directory.CreateDirectory(physicalPath);
+
+                //si el id producto es 0¿? se registra, sino se modifica
+                if (oProducto.IdProducto == 0)
+                {
+                    int id = ProductoLogica.Instancia.Registrar(oProducto);
+                    oProducto.IdProducto = id;
+                    //Si el id producto es =0 el resultado es false sino true
+                    //oresponse.resultado = oProducto.IdProducto == 0 ? false : true;
+                    oresponse.resultado = oProducto.IdProducto != 0;
+
+                }
+                else
+                {
+                    oresponse.resultado = ProductoLogica.Instancia.Modificar(oProducto);
+                }
+
+                //Si la imagen es diferente de null y el id producto ya existe o se acaba de crear
+                //REEMPLAZA LA RUTA IMAGEN por imagenArchivo especificado
+                if (imagenArchivo != null && oProducto.IdProducto != 0)
+                {
+                    string extension = Path.GetExtension(imagenArchivo.FileName);
+                    //"~/Imagenes/Productos/+26+.jpg
+                    GuardarEnRuta = GuardarEnRuta + oProducto.IdProducto.ToString() + extension;
+                    oProducto.RutaImagen = GuardarEnRuta;
+
+                    //Ruta fisica de la RutaImagen "D://~/Imagenes/Productos/+idproducto+.jpg")
+                    imagenArchivo.SaveAs(physicalPath + "/" + oProducto.IdProducto.ToString() + extension );
+
+                    oresponse.resultado = ProductoLogica.Instancia.ActualizarRutaImagen(oProducto);
+                }
+
+            }
+            catch (Exception e)
+            {
+                oresponse.resultado = false;
+                oresponse.mensaje = e.Message;
+            }
+
+            return Json(oresponse, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult EliminarProducto(int id)
+        {
+            bool respuesta = false;
+            respuesta = ProductoLogica.Instancia.Eliminar(id);
+            return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
+        }
+    }
+    
+    public class Response {
+
+        public bool resultado { get; set; }
+        public string mensaje { get; set; }
     }
 }

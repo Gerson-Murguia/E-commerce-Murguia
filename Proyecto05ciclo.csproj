@@ -472,7 +472,9 @@
     <Compile Include="Logica\CategoriaLogica.cs" />
     <Compile Include="Logica\Conexion.cs" />
     <Compile Include="Logica\MarcaLogica.cs" />
+    <Compile Include="Logica\ProductoLogica.cs" />
     <Compile Include="Logica\UsuarioLogica.cs" />
+    <Compile Include="Logica\utilidades.cs" />
     <Compile Include="Models\Carrito.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Compra.cs" />
@@ -536,7 +538,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagenes\Producto\" />
+    <Folder Include="Imagenes\Productos\" />
     <Folder Include="Views\Tienda\" />
   </ItemGroup>
   <ItemGroup>
