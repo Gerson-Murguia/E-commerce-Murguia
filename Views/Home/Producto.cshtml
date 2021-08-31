@@ -8,7 +8,7 @@
     <li class="breadcrumb-item"><a href="index.html">Mantenedores</a></li>
     <li class="breadcrumb-item active">Productos</li>
 </ol>
-
+<!--CARD 1-->
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i> Listado de Productos
@@ -51,12 +51,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input id="txtid" type="hidden" value="0" />
+                <!--el IDPRODUCTO ES 0 POR DEFECTO-->
+                <input id="txtid" type="hidden" value="0"/>
                 <form id="formNivel">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-2">
-                                <img id="img_producto" height="198" width="200" class="border border-dark" />
+                                <img id="img_producto" height="198" width="200" class="border border-dark"/>
                             </div>
                             <div class="mb-2">
                                 <input class="form-control" type="file" id="imgproducto" onchange="readURL(this);">

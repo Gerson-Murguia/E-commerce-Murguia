@@ -561,6 +561,7 @@
     <Content Include="Views\Home\Categoria.cshtml" />
     <Content Include="Views\Home\Marca.cshtml" />
     <Content Include="Views\Home\Producto.cshtml" />
+    <Content Include="Views\Home\Tienda.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
