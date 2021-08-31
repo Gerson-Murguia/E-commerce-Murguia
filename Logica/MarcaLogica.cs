@@ -59,6 +59,7 @@ namespace Proyecto05ciclo.Logica
                 }
                 catch (Exception ex)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de obtener Marca " + ex.Message);
                     oListaMarca = null;
                     return oListaMarca;
                 }
@@ -86,8 +87,10 @@ namespace Proyecto05ciclo.Logica
                     respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
 
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de registrar Marca " + e.Message);
+
                     respuesta = false;
                 }
             }
@@ -116,8 +119,9 @@ namespace Proyecto05ciclo.Logica
                     respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
 
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de modificar Marca " + e.Message);
                     respuesta = false;
                 }
 
@@ -145,8 +149,10 @@ namespace Proyecto05ciclo.Logica
                     respuesta = true;
 
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de eliminar Marca " + e.Message);
+
                     respuesta = false;
                 }
 

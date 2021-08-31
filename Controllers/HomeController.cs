@@ -84,12 +84,11 @@ namespace Proyecto05ciclo.Controllers
 
 
         //MARCA AJAX
-        //FALTA TERMINAR
         [HttpGet]
         public JsonResult ListarMarca()
         {
-            List<Categoria> oLista=new List<Categoria>();
-            oLista = CategoriaLogica.Instancia.Listar();
+            List<Marca> oLista=new List<Marca>();
+            oLista = MarcaLogica.Instancia.Listar();
             return Json(new {data=oLista},JsonRequestBehavior.AllowGet);
         }
 
@@ -97,7 +96,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult GuardarMarca(Marca oMarca)
         {
             bool respuesta = false;
-            //PORQUE IDMARCA ES 0? EN DONDE SE LE ASIGNA
+            //PORQUE IDMARCA ES 0? EN DONDE SE LE ASIGNA?(SE LE ASIGNA EN JQUERY)
             respuesta = (oMarca.IdMarca == 0)
                 ? MarcaLogica.Instancia.Registrar(oMarca)
                 : MarcaLogica.Instancia.Modificar(oMarca);

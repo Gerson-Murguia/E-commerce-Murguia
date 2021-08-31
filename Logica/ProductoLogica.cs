@@ -71,6 +71,7 @@ namespace Proyecto05ciclo.Logica
                 }
                 catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de obtener Producto " + e.Message);
                     oListaProducto = null;
                     return oListaProducto;
                 }
@@ -102,8 +103,9 @@ namespace Proyecto05ciclo.Logica
                     respuesta = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
 
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de registrar Producto " + e.Message);
                     respuesta = 0;
                 }
             }
@@ -136,8 +138,9 @@ namespace Proyecto05ciclo.Logica
                     respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
 
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de obtener Usuario " + e.Message);
                     respuesta = false;
                 }
             }
@@ -158,8 +161,9 @@ namespace Proyecto05ciclo.Logica
                     oConexion.Open();
                     cmd.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de obtener Usuario " + e.Message);
                     respuesta = false;
                 }
             }
@@ -184,8 +188,9 @@ namespace Proyecto05ciclo.Logica
                     respuesta = true;
 
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de obtener Usuario " + e.Message);
                     respuesta = false;
                 }
 
