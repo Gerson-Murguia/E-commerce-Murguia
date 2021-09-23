@@ -67,7 +67,7 @@ namespace Proyecto05ciclo.Logica
         }
 
         
-
+        //La descripcion se esta pasando null
         public bool Registrar(Marca oMarca)
         {
             bool respuesta = true;

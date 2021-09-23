@@ -56,7 +56,7 @@ namespace Proyecto05ciclo.Logica
                                 Correo = dr["Correo"].ToString(),
                                 Password = dr["Contrasena"].ToString(),
                                 EsAdministrador = Convert.ToBoolean(dr["EsAdministrador"])
-                                //no se pone activo !?, confirmar password eso es pal registro
+                                //no se pone activo es por default, confirmar password eso es pal registro
                             };
                         }
                     }
