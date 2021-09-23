@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Proyecto05ciclo.Models
 {
-    public class Distrio
+    public class Distrito
     {
         public string IdDistrito { get; set; }
         public string Descripcion { get; set; }
