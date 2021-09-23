@@ -101,6 +101,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bd\001_CREACION BASE Y TABLAS.sql" />
+    <Content Include="bd\002_PROCEDIMIENTOS.sql" />
+    <Content Include="bd\003_INSERTAR DATOS.sql" />
+    <Content Include="bd\004_INSERTAR UBIGEO.sql" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
