@@ -26,7 +26,7 @@ namespace Proyecto05ciclo.App_Start
             bundles.Add(new StyleBundle("~/Content/PluginsCSS").Include(
 
                 ////FUENTE FONTAWESOME
-                //"~/Content/Plugins/fontawesome-free-5.15.2/css/all.min.css",
+                "~/Content/Plugins/font-awesome-free/css/all.min.css",
 
                 ////SWEET ALERT
                 //"~/Content/Plugins/sweetalert2/css/sweetalert.css",
@@ -39,7 +39,7 @@ namespace Proyecto05ciclo.App_Start
             bundles.Add(new StyleBundle("~/Content/PluginsJS").Include(
 
                 // //FUENTE FONTAWESOME,
-                // "~/Content/Plugins/fontawesome-free-5.15.2/js/all.min.js",
+                "~/Content/Plugins/font-awesome-free/js/all.min.js",
 
                 ////SWEET ALERT
                 "~/Scripts/SweetAlert/sweetalert.min.js",

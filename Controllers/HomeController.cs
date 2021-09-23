@@ -46,8 +46,16 @@ namespace Proyecto05ciclo.Controllers
 
             return View();
         }
-
+        //todo:  duplicado de controller tienda
         public ActionResult Tienda()
+        {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Index", "Login");
+
+            return View();
+        }
+
+        public ActionResult Usuario()
         {
             if (Session["Usuario"] == null)
                 return RedirectToAction("Index", "Login");
@@ -95,12 +103,13 @@ namespace Proyecto05ciclo.Controllers
         [HttpPost]
         public JsonResult GuardarMarca(Marca oMarca)
         {
+            //TODO: Si se deja en blanco los datos al crear nuevo hay un null exception, agregar limitaciones a los imputs del modal
             bool respuesta = false;
             //PORQUE IDMARCA ES 0? EN DONDE SE LE ASIGNA?(SE LE ASIGNA EN JQUERY)
             respuesta = (oMarca.IdMarca == 0)
                 ? MarcaLogica.Instancia.Registrar(oMarca)
                 : MarcaLogica.Instancia.Modificar(oMarca);
-            return Json(new {resultado=respuesta});
+            return Json(new {resultado=respuesta},JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -201,7 +210,7 @@ namespace Proyecto05ciclo.Controllers
         [HttpPost]
         public JsonResult EliminarProducto(int id)
         {
-            bool respuesta = false;
+            bool respuesta;
             respuesta = ProductoLogica.Instancia.Eliminar(id);
             return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
         }
