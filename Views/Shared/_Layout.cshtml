@@ -38,7 +38,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>Dashboard
                         </a>
                         <!--PERFIL DE USUARIO NO IMPLEMENTADO-->
-                        <a class="nav-link" href="@Url.Action("Index","Home")">
+                        <a class="nav-link" href="@Url.Action("Usuario","Home")">
                             <div class="sb-nav-link-icon"><i class="far fa-user"></i></div>Perfil de Usuario
                         </a>
                         <!---->
@@ -92,11 +92,12 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                        <div class="text-muted">Copyright &copy; Gerson Murguia 2021</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
+                            <!--todo: terminos y condiciones-->
+                            <a href="#">Politica de Privacidad</a>
                             &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                            <a href="#">Terminos &amp; Condiciones</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +108,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Content/PluginsJS")
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+   
     <script>
         window.addEventListener('DOMContentLoaded', event => {
 
