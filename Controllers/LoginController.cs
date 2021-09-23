@@ -17,6 +17,7 @@ namespace Proyecto05ciclo.Controllers
             return View();
         }
 
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -40,7 +41,6 @@ namespace Proyecto05ciclo.Controllers
             }
             else
             {
-                //TEMPORAL, DEBE SER controller Tienda PERO NO ESTA CREADA AUN
                 return RedirectToAction("Index", "Tienda");
             }
         }
@@ -91,7 +91,7 @@ namespace Proyecto05ciclo.Controllers
 }
 
 /*
- *Uso de [AllowAnonymus]
+ *Uso de [AllowAnonymus]:
  * [AllowAnonymous]
    public ActionResult LogIn () {
       // This action can be accessed by unauthorized users
