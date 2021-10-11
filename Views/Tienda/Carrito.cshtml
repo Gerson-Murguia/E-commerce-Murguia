@@ -19,7 +19,7 @@
                             Tienes <span id="cantidad-articulos" class="ml-1">0</span> artículo(s) en tu carrito
                         </div>
                         <div id="productos-seleccionados">
-
+                            <!--Aqui van los productos del carrito-->
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                                             $("<div>").addClass("ml-2").append(
                                                 $("<span>").addClass("font-weight-bold d-block").text(item.oProducto.oMarca.Descripcion),
                                                 $("<span>").addClass("spec").text(item.oProducto.Nombre),
-                                                $("<span>").addClass("float-end").text("Precio : S./" + item.oProducto.Precio )
+                                                $("<span>").addClass("float-end").text("Precio Unitario : S./" + item.oProducto.Precio )
                                             )
                                         ),
                                         $("<div>").addClass("col-3").append(
