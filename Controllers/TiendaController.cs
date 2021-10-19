@@ -134,8 +134,9 @@ namespace Proyecto05ciclo.Controllers
             if (idcategoria != 0){
                 oLista = oLista.Where(x => x.oCategoria.IdCategoria == idcategoria).ToList() ;
             }
-
-            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+            var json=Json(new {data = oLista}, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = int.MaxValue;
+            return json;
         }
 
         [HttpGet]
