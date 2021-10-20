@@ -1931,6 +1931,7 @@
     <Content Include="Global.asax" />
     <Content Include="Imagenes\Login\1.jpg" />
     <Content Include="Imagenes\Login\2.jpg" />
+    <Content Include="Imagenes\Login\bannergametec.png" />
     <Content Include="Imagenes\Login\gametec.png" />
     <Content Include="Imagenes\Login\gametecanimado.gif" />
     <Content Include="Imagenes\Productos\1.jpg" />
