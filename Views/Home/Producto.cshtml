@@ -3,7 +3,7 @@
     ViewBag.Title = "Producto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<!--TODO:Agregar multiples tags a los productos, multiples imagenes-->
 <ol class="breadcrumb mb-4 mt-4">
     <li class="breadcrumb-item"><a href="#">Mantenedores</a></li>
     <li class="breadcrumb-item active">Productos</li>
@@ -60,7 +60,7 @@
                                 <img id="img_producto" height="198" width="200" class="border border-dark"/>
                             </div>
                             <div class="mb-2">
-                                <input class="form-control" type="file" id="imgproducto" onchange="readURL(this);">
+                                <input class="form-control" type="file" required="required" id="imgproducto" onchange="readURL(this);">
                             </div>
                         </div>
                         <div class="col-sm-6">

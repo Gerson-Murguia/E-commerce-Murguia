@@ -4,10 +4,9 @@
 }
 
 <ol class="breadcrumb mb-4 mt-4">
-    <li class="breadcrumb-item"><a href="#">Mantenedores</a></li>
+    <li class="breadcrumb-item"><a href="/">Mantenimiento</a></li>
     <li class="breadcrumb-item active">Categorias</li>
 </ol>
-
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i> Listado de Categorias
@@ -15,18 +14,17 @@
     <div class="card-body">
         <div class="row">
             <div class="col-sm-12">
-                <button class="btn btn-success" type="button" onclick="abrirModal(null)">Crear Nuevo</button>
+                <!--Despliega el modal-->
+                <button class="btn btn-success" type="button" onclick="abrirModal(null)">Crear Categoria</button>
             </div>
         </div>
-
-        <hr />
+        <hr/>
         <table id="tabla" class="display responsive" style="width:100%">
             <thead>
                 <tr>
-
                     <th>Descripcion</th>
                     <th>Activo</th>
-                    <th></th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -181,7 +179,7 @@
 
         function Guardar() {
             var request = {
-                objeto: {
+                oCategoria: {
                     IdCategoria: $("#txtid").val(),
                     Descripcion: $("#txtdescripcion").val(),
                     Activo: parseInt($("#cboEstado").val()) == 1 ? true : false
