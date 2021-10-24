@@ -19,6 +19,7 @@
 </div>
 
 <!-- Modal -->
+<!--
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -36,7 +37,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 @section scripts{
 
@@ -51,15 +52,15 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     $(".row-categoria").html("");
-                    $(".modal-body").LoadingOverlay("hide");
+                    $(".row-categoria").LoadingOverlay("hide");
                     if (data.data != null) {
-                        $("<div>").addClass("col-4").append(
-                            $("<button>").addClass("btn btn-outline-primary btn-categoria m-1 w-100").text("Ver Todos").attr({ "onclick": "listarProductos(0)" })
+                        $("<li>").addClass("dropdown-item").append(
+                            $("<button>").addClass("btn btn-outline-dark btn-categoria m-1 w-100").text("Mostrar Todo").attr({ "onclick": "listarProductos(0)" })
                         ).appendTo(".row-categoria");
 
                         $.each(data.data, function (i, item) {
-                            $("<div>").addClass("col-4").append(
-                                $("<button>").addClass("btn btn-outline-primary btn-categoria m-1 w-100").text(item.Descripcion).attr({ "onclick": "listarProductos(" + item.IdCategoria + ")" })
+                            $("<li>").addClass("dropdown-item").append(
+                                $("<button>").addClass("btn btn-outline-dark btn-categoria m-1 w-100").text(item.Descripcion).attr({ "onclick": "listarProductos(" + item.IdCategoria + ")" })
                             ).appendTo(".row-categoria");
                         });
                     }
@@ -69,11 +70,9 @@
                 },
                 beforeSend: function () {
                     
-                    $(".modal-body").LoadingOverlay("show");
+                    $(".row-categoria").LoadingOverlay("show");
                 },
             });
-
-            $('#exampleModal').modal('show');
         });
 
         $(document).ready(function () {

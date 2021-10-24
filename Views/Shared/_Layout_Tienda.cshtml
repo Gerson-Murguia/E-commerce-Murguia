@@ -18,8 +18,15 @@
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="@Url.Action("Index","Tienda")" style="width:180px !important">GAMETEC</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-dark btn-ver-categoria" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i> Ver Categorias</button>
 
+            <ul class="navbar-nav me-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle btn-ver-categoria" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i> Categorias</a>
+                    <ul class="dropdown-menu dropdown-menu-end row-categoria" aria-labelledby="navbarDropdown">
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
             <!-- Navbar-->
             @{
                 if (((Proyecto05ciclo.Models.Usuario)Session["Usuario"]).EsAdministrador == false)
@@ -42,6 +49,15 @@
                             </ul>
                         </li>
                     </ul>
+                }else{
+                    <ul class="navbar-nav me-2">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
                 }
             }
 

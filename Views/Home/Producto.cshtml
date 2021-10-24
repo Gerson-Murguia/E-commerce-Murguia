@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!--TODO:Agregar multiples tags a los productos, multiples imagenes-->
+<!--TODO:Cambiar categoria por genero y en categoria poner exclusivos, ofertas etc-->
 <ol class="breadcrumb mb-4 mt-4">
     <li class="breadcrumb-item"><a href="#">Mantenedores</a></li>
     <li class="breadcrumb-item active">Productos</li>
@@ -40,7 +41,7 @@
 </div>
 
 
-<!-- Modal -->
+<!-- Modal https://getbootstrap.com/docs/5.0/components/modal/ -->
 <div class="modal fade" id="FormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -52,12 +53,12 @@
             </div>
             <div class="modal-body">
                 <!--el IDPRODUCTO ES 0 POR DEFECTO-->
-                <input id="txtid" type="hidden" value="0"/>
+                <input id="txtid" type="hidden" value="0" />
                 <form id="formNivel">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-2">
-                                <img id="img_producto" height="198" width="200" class="border border-dark"/>
+                                <img id="img_producto" height="198" width="200" class="border border-dark" />
                             </div>
                             <div class="mb-2">
                                 <input class="form-control" type="file" required="required" id="imgproducto" onchange="readURL(this);">
