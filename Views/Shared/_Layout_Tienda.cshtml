@@ -49,7 +49,9 @@
                             </ul>
                         </li>
                     </ul>
-                }else{
+                }
+                else
+                {
                     <ul class="navbar-nav me-2">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
@@ -57,7 +59,7 @@
                                 <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Cerrar Sesión</a></li>
                             </ul>
                         </li>
-                    </ul>    
+                    </ul>
                 }
             }
 
@@ -66,6 +68,8 @@
     <main class="container-fluid">
         @RenderBody()
     </main>
+    
+
     <div class="position-fixed top-0 end-0 p-3 mt-5" style="z-index: 5">
         <div id="toast-carrito" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
             <div class="toast-body bg-success text-white">

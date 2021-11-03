@@ -4,18 +4,30 @@
     Layout = "~/Views/Shared/_Layout_Tienda.cshtml";
 }
 
-<div class="row mt-5">
+<div class="row mt-5 bg-dark">
     <div class="container-fluid g-0">
-    <img class="img-fluid" src="~/Imagenes/Login/bannergametec.png"/>
+        <img class="img-fluid" src="~/Imagenes/Login/bannergametec.png" />
     </div>
-    <div class="py-2">
+    <div class="py-2 tienda">
         <div class="container px-2 px-lg-2 mt-5">
             <div id="catalogo-productos" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
             </div>
         </div>
     </div>
-
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <!-- Modal -->
