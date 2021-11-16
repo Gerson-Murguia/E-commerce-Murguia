@@ -55,7 +55,6 @@ namespace Proyecto05ciclo.Controllers
                     extension = Path.GetExtension(o.RutaImagen).Replace(".", ""),
                     Activo = o.Activo
                 }).FirstOrDefault();
-
             return View(oProducto);
         }
 
@@ -110,7 +109,7 @@ namespace Proyecto05ciclo.Controllers
         }
         
         [HttpPost]
-        public JsonResult ListarProducto(int idcategoria = 0)
+        public JsonResult ListarProducto(int idcategoria = 0,int p=0)
         {
             List<Producto> oLista = new List<Producto>();
 
@@ -133,7 +132,16 @@ namespace Proyecto05ciclo.Controllers
 
             if (idcategoria != 0){
                 oLista = oLista.Where(x => x.oCategoria.IdCategoria == idcategoria).ToList() ;
-            }
+            }/*
+            int filas=8;
+            int cant=oLista.Count();
+            int nropags=cant%filas>0?cant/filas+1:cant/filas;
+            ViewBag.nropags=nropags;
+            ViewBag.p=p;
+             return View(productos.filtro(nombre).Skip(p*filas).Take(filas));
+*/
+
+
             var json=Json(new {data = oLista}, JsonRequestBehavior.AllowGet);
             json.MaxJsonLength = int.MaxValue;
             return json;

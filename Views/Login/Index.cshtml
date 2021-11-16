@@ -60,7 +60,7 @@
                 <!--FORM-->
                 <div class="px-lg-5 w-100 px-3">
                     <form class="mb-4" action="@Url.Content("~/Login/Index")" method="post">
-                        @Html.AntiForgeryToken()    
+                        @Html.AntiForgeryToken()
                         <div class="mb-4">
                             <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
                             <input type="email" class="form-control border-0 mb-2" name="NCorreo" placeholder="Ingresa tu email" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -73,21 +73,22 @@
                         <div class="mb-4">
                             <button type="submit" class="btn btn-outline-light w-100">Iniciar Sesion</button>
                         </div>
-                     </form>
+                    </form>
                     <div class="form-floating mb-2 mt-2">
                         @{if (ViewBag.Error != null)
-                          {
-                              <div class="alert alert-danger" role="alert">
-                                  @ViewBag.Error
-                              </div>
-                          }
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @ViewBag.Error
+                                </div>
+                            }
                         }
                     </div>
-                    <p class="font-weight-bold text-center text-muted">O inicia sesión con:</p>
-                    <div class="d-flex justify-content-around">
-                        <button type="submit" class="me-2 btn btn-outline-light flex-grow-1 "><i class="fab fa-google lead me-3"></i>Google</button>
-                        <button type="submit" class="ms-2 btn btn-outline-light flex-grow-1 "><i class="fab fa-facebook-f lead me-3"></i>Facebook</button>
-                    </div>
+                    <!--
+    <p class="font-weight-bold text-center text-muted">O inicia sesión con:</p>
+    <div class="d-flex justify-content-around">
+        <button type="submit" class="me-2 btn btn-outline-light flex-grow-1 "><i class="fab fa-google lead me-3"></i>Google</button>
+        <button type="submit" class="ms-2 btn btn-outline-light flex-grow-1 "><i class="fab fa-facebook-f lead me-3"></i>Facebook</button>
+    </div>-->
                 </div>
                 <div class="text-center px-lg-5 pt-lg-3 pb-lg-0 p-2 w-100">
                     <p class="d-inline-block mb-2">¿Todavia no tienes una cuenta?</p><a href="@Url.Action("Registrarse","Login")" class="text-light font-weight-bold text-decoration-none d-inline-block"> Crea una ahora</a>

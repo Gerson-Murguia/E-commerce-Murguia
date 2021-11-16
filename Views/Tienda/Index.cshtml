@@ -10,7 +10,7 @@
     </div>
     <div class="py-2 tienda">
         <div class="container px-2 px-lg-2 mt-5">
-            <div id="catalogo-productos" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div id="catalogo-productos" class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
             </div>
         </div>
@@ -30,27 +30,6 @@
     </nav>
 </div>
 
-<!-- Modal -->
-<!--
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Seleccione una Categoría</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row row-categoria">
-                </div>
-
-            </div>
-            <div class="modal-footer">
-
-            </div>
-        </div>
-    </div>
-</div>-->
-
 @section scripts{
 
     <script>
@@ -67,7 +46,7 @@
                     $(".row-categoria").LoadingOverlay("hide");
                     if (data.data != null) {
                         $("<li>").addClass("dropdown-item").append(
-                            $("<button>").addClass("btn btn-outline-dark btn-categoria m-1 w-100").text("Mostrar Todo").attr({ "onclick": "listarProductos(0)" })
+                            $("<button>").addClass("btn btn-outline-dark btn-categoria m-1 w-100").text("Todos").attr({ "onclick": "listarProductos(0)" })
                         ).appendTo(".row-categoria");
 
                         $.each(data.data, function (i, item) {
@@ -78,7 +57,7 @@
                     }
                 },
                 error: function (error) {
-                    console.log(error)
+                    console.log(error);
                 },
                 beforeSend: function () {
                     

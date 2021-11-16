@@ -61,6 +61,7 @@ namespace Proyecto05ciclo.Logica
             return lst;
         }
 
+        //obtiene las  provincias de un solo departamento
         public List<Provincia> ObtenerProvincia(string _iddepartamento)
         {
             List<Provincia> lst = new List<Provincia>();
@@ -93,7 +94,7 @@ namespace Proyecto05ciclo.Logica
             }
             return lst;
         }
-
+        //obtiene los distritos de un departament y provincia especificados
         public List<Distrito> ObtenerDistrito(string _idprovincia, string _iddepartamento)
         {
             List<Distrito> lst = new List<Distrito>();

@@ -144,6 +144,8 @@ namespace Proyecto05ciclo.Controllers
                           extension = Path.GetExtension(o.RutaImagen).Replace(".", ""),
                           Activo = o.Activo
                       }).ToList();
+
+
             var json = Json(new {data = oLista}, JsonRequestBehavior.AllowGet);
             //cambio para permitir mas tamaño de imagenes
             json.MaxJsonLength = int.MaxValue;

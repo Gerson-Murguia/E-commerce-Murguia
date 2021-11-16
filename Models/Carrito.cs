@@ -12,3 +12,4 @@ namespace Proyecto05ciclo.Models
         public Usuario oUsuario { get; set; }
     }
 }
+//243*344

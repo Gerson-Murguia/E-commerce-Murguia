@@ -2212,15 +2212,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Logica\CarritoLogica.cs" />
-    <Compile Include="Logica\CategoriaLogica.cs" />
-    <Compile Include="Logica\CompraLogica.cs" />
-    <Compile Include="Logica\Conexion.cs" />
-    <Compile Include="Logica\MarcaLogica.cs" />
-    <Compile Include="Logica\ProductoLogica.cs" />
-    <Compile Include="Logica\UbigeoLogica.cs" />
-    <Compile Include="Logica\UsuarioLogica.cs" />
-    <Compile Include="Logica\utilidades.cs" />
+    <Compile Include="DAO\CarritoDAO.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\CompraDAO.cs" />
+    <Compile Include="DAO\Conexion.cs" />
+    <Compile Include="DAO\MarcaDAO.cs" />
+    <Compile Include="DAO\ProductoDAO.cs" />
+    <Compile Include="DAO\UbigeoDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="DAO\utilidades.cs" />
     <Compile Include="Models\Carrito.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Compra.cs" />
