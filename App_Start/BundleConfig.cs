@@ -32,8 +32,7 @@ namespace Proyecto05ciclo.App_Start
                 //"~/Content/Plugins/sweetalert2/css/sweetalert.css",
 
                 //DATATABLE
-                "~/Content/DataTables/css/jquery.dataTables.min.css",
-                "~/Content/DataTables/css/responsive.dataTables.min.css"
+                "~/Scripts/DataTables/datatables.min.css"
             ));
             
             bundles.Add(new StyleBundle("~/Content/PluginsJS").Include(
@@ -45,8 +44,7 @@ namespace Proyecto05ciclo.App_Start
                 "~/Scripts/SweetAlert/sweetalert.min.js",
                    
                 //DATATABLE JS
-                "~/Scripts/DataTables/jquery.dataTables.min.js",
-                "~/Scripts/DataTables/dataTables.responsive.min.js",
+                //"~/Scripts/DataTables/datatables.min.js",
                 ////LOADING OVERLAY
                 "~/Scripts/loadingoverlay.min.js"
 

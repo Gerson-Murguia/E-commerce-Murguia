@@ -13,22 +13,22 @@
 </head>
 <!--LAYOUT COMPARTIDO DE ADMINISTRADORES-->
 <body class="sb-nav-fixed">
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="#">GAMETEC</a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-    <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Ver Perfil</a></li>
-                <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Cerrar Sesion</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
-<!--SIDEBAR NAV-->
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="#">GAMETEC</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Ver Perfil</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Cerrar Sesion</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!--SIDEBAR NAV-->
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -109,7 +109,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Content/PluginsJS")
-   
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.3/b-2.0.1/b-html5-2.0.1/b-print-2.0.1/datatables.min.js"></script>
+
     <script>
         window.addEventListener('DOMContentLoaded', event => {
 
