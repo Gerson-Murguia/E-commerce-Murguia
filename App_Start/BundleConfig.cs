@@ -26,13 +26,13 @@ namespace Proyecto05ciclo.App_Start
             bundles.Add(new StyleBundle("~/Content/PluginsCSS").Include(
 
                 ////FUENTE FONTAWESOME
-                "~/Content/Plugins/font-awesome-free/css/all.min.css",
+                "~/Content/Plugins/font-awesome-free/css/all.min.css"//,
 
                 ////SWEET ALERT
                 //"~/Content/Plugins/sweetalert2/css/sweetalert.css",
 
                 //DATATABLE
-                "~/Scripts/DataTables/datatables.min.css"
+                //"~/Scripts/DataTables/DataTables-1.11.3/css/jquery.dataTables.css"
             ));
             
             bundles.Add(new StyleBundle("~/Content/PluginsJS").Include(
