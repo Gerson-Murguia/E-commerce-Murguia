@@ -19,6 +19,10 @@ namespace Proyecto05ciclo.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
+            if ((Session["Usuario"] as Usuario).EsAdministrador==false)
+            {
+                return RedirectToAction("Index", "Tienda");
+            }
             return View();
         }
 
@@ -68,7 +72,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult ListarCategoria()
         {
             List<Categoria> oLista=new List<Categoria>();
-            oLista = CategoriaLogica.Instancia.Listar();
+            oLista = CategoriaDAO.Instancia.Listar();
             return Json(new {data=oLista},JsonRequestBehavior.AllowGet);
         }
 
@@ -77,8 +81,8 @@ namespace Proyecto05ciclo.Controllers
         {
             bool respuesta = false;
             respuesta = (oCategoria.IdCategoria == 0)
-                ? CategoriaLogica.Instancia.Registrar(oCategoria)
-                : CategoriaLogica.Instancia.Modificar(oCategoria);
+                ? CategoriaDAO.Instancia.Registrar(oCategoria)
+                : CategoriaDAO.Instancia.Modificar(oCategoria);
             return Json(new {resultado=respuesta});
         }
 
@@ -86,7 +90,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult EliminarCategoria(int id)
         {
             bool respuesta = false;
-            respuesta = CategoriaLogica.Instancia.Eliminar(id);
+            respuesta = CategoriaDAO.Instancia.Eliminar(id);
             return Json(new { resultado=respuesta});
         }
 

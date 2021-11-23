@@ -18,7 +18,7 @@
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="@Url.Action("Index","Tienda")" style="width:180px !important">GAMETEC</a>
             <!-- Sidebar Toggle-->
-
+            <a class="nav-link text-white ps-3" href="@Url.Action("Index","Tienda")" style="width:100px !important">Inicio</a>
             <ul class="navbar-nav me-2">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle btn-ver-categoria" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i> Categorias</a>
@@ -74,7 +74,7 @@
         <div id="toast-carrito" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
             <div class="toast-body bg-success text-white">
                 <div class="d-flex">
-                    <i class="fas fa-check fa-2x"></i> <label style="margin-left: 10px !important">Se añadió al carrito!</label>
+                    <i class="fas fa-check fa-2x"></i> <label style="margin-left: 10px !important">Añadido al carrito</label>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
         <div id="toast-alerta" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
             <div class="toast-body bg-danger text-white">
                 <div class="d-flex">
-                    <i class="fas fa-exclamation-circle fa-2x"></i> <label id="mensaje-error" class="ml-2" style="margin-left: 10px !important">Error</label>
+                    <i class="fas fa-exclamation-circle fa-2x"></i> <label id="mensaje-error" class="ml-2" style="margin-left: 10px !important">Error al añadir</label>
                 </div>
 
             </div>

@@ -85,7 +85,7 @@ namespace Proyecto05ciclo.Controllers
         {
             List<Compra> oLista = new List<Compra>();
 
-            oLista = CarritoLogica.Instancia.ObtenerCompra(oUsuario.IdUsuario);
+            oLista = CarritoDAO.Instancia.ObtenerCompra(oUsuario.IdUsuario);
 
             oLista = (from c in oLista
                 select new Compra()
@@ -151,7 +151,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult ListarCategoria()
         {
             List<Categoria> oLista = new List<Categoria>();
-            oLista = CategoriaLogica.Instancia.Listar();
+            oLista = CategoriaDAO.Instancia.Listar();
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
 
@@ -160,7 +160,7 @@ namespace Proyecto05ciclo.Controllers
         {
             oCarrito.oUsuario = new Usuario() { IdUsuario = oUsuario.IdUsuario };
             int _respuesta = 0;
-            _respuesta = CarritoLogica.Instancia.Registrar(oCarrito) ;
+            _respuesta = CarritoDAO.Instancia.Registrar(oCarrito) ;
             return Json(new { respuesta = _respuesta }, JsonRequestBehavior.AllowGet);
         }
 
@@ -169,7 +169,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult CantidadCarrito()
         {
             int _respuesta = 0;
-            _respuesta = CarritoLogica.Instancia.Cantidad(oUsuario.IdUsuario);
+            _respuesta = CarritoDAO.Instancia.Cantidad(oUsuario.IdUsuario);
             return Json(new { respuesta = _respuesta }, JsonRequestBehavior.AllowGet);
         }
 
@@ -178,7 +178,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult ObtenerCarrito()
         {
             List<Carrito> oLista = new List<Carrito>();
-            oLista = CarritoLogica.Instancia.Obtener(oUsuario.IdUsuario);
+            oLista = CarritoDAO.Instancia.Obtener(oUsuario.IdUsuario);
 
             if (oLista.Count != 0) {
                 oLista = (from d in oLista
@@ -206,7 +206,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult EliminarCarrito(string IdCarrito,string IdProducto)
         {
             bool respuesta = false;
-            respuesta = CarritoLogica.Instancia.Eliminar(IdCarrito, IdProducto);
+            respuesta = CarritoDAO.Instancia.Eliminar(IdCarrito, IdProducto);
             return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
         }
 
@@ -246,7 +246,7 @@ namespace Proyecto05ciclo.Controllers
             bool respuesta = false;
 
             oCompra.IdUsuario = oUsuario.IdUsuario;
-            respuesta = CompraLogica.Instancia.Registrar(oCompra);
+            respuesta = CompraDAO.Instancia.Registrar(oCompra);
             return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
         }
 

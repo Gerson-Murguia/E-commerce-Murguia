@@ -9,22 +9,22 @@ using Proyecto05ciclo.Models;
 namespace Proyecto05ciclo.Logica
 {
     //int 0 es false
-    public class CategoriaLogica
+    public class CategoriaDAO
     {
-        private static CategoriaLogica _instancia = null;
+        private static CategoriaDAO _instancia = null;
 
-        public CategoriaLogica()
+        public CategoriaDAO()
         {
         }
 
         //singleton
-        public static CategoriaLogica Instancia
+        public static CategoriaDAO Instancia
         {
             get
             {
                 if (_instancia==null)
                 {
-                    _instancia=new CategoriaLogica();
+                    _instancia=new CategoriaDAO();
                 }
                 return _instancia;
             }

@@ -11,8 +11,8 @@
                 <div class="col-md-8">
                     <div class="product-details mr-2">
                         <div class="d-flex justify-content-between">
-                            <span class="ml-2">Detalle Compra</span>
-                            <a class="btn btn-danger" href="@Url.Action("Index","Tienda")">Volver</a>
+                            <span class="ml-2">Carrito de compras</span>
+
                         </div>
                         <hr class="mt-2 mb-2">
                         <div class="justify-content-start mb-2">
@@ -21,6 +21,7 @@
                         <div id="productos-seleccionados">
                             <!--Aqui van los productos del carrito-->
                         </div>
+                        <a class="btn btn-danger" href="@Url.Action("Index","Tienda")">Volver al Inicio</a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -30,10 +31,10 @@
 
                                 <div class="col-12">
                                     <div class="payment-info">
-                                        <div class="d-flex justify-content-between align-items-center"><span>Detalle de Tarjeta</span></div>
+                                        <div class="d-flex justify-content-between align-items-center"><span>Metodo de pago</span></div>
                                         <span class="type d-block mt-3 mb-1">Tipo de tarjeta</span>
-                                        <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="60" src="@Url.Content("~/Imagenes/Tarjetas/master.png")" /></span> </label>
-                                        <label class="radio ml-2"> <input type="radio" name="card" value="payment"> <span><img width="60" src="@Url.Content("~/Imagenes/Tarjetas/visa.png")" /></span> </label>
+                                        <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="50" src="@Url.Content("~/Imagenes/Tarjetas/master.png")" /></span> </label>
+                                        <label class="radio ml-2"> <input type="radio" name="card" value="payment"> <span><img width="50" src="@Url.Content("~/Imagenes/Tarjetas/visa.png")" /></span> </label>
                                         <div>
                                             <label class="credit-card-label mb-1 mt-2">Nombre del Titular</label>
                                             <input type="text" class="form-control credit-inputs" placeholder="Nombre" id="trj_nombre">
@@ -45,16 +46,16 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="credit-card-label mb-1 mt-2">Vigencia</label>
-                                                <input type="text" class="form-control credit-inputs" placeholder="12/24" id="trj_vigencia">
+                                                <input type="text" class="form-control credit-inputs" placeholder="03/22" id="trj_vigencia">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="credit-card-label mb-1 mt-2">CVV</label>
-                                                <input type="text" class="form-control credit-inputs" placeholder="342" id="trj_cvv">
+                                                <input type="text" class="form-control credit-inputs" placeholder="545" id="trj_cvv">
                                             </div>
                                         </div>
                                         <hr class="line">
                                         <div class="d-flex justify-content-between information"><span>Total a Pagar</span><span id="totalPagar">S/. 0</span></div>
-                                        <button class="btn btn-primary btn-block mt-3" id="btnProcesarPago" type="button">Procesar Pago</button>
+                                        <button class="btn btn-success btn-block mt-3" id="btnProcesarPago" type="button">Procesar Pago</button>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +77,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Datos para envio</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Datos de envio</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -108,8 +109,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Regresar</button>
                 <button type="button" class="btn btn-success" id="btnConfirmarCompra">Confirmar Compra</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Regresar</button>
             </div>
         </div>
     </div>
@@ -233,7 +234,7 @@
                 var precio = parseFloat($(this).val()) * parseFloat($(this).data("precio"));
                 total = total + precio;
             });
-            $("#totalPagar").text("S/. " + total.toString());
+            $("#totalPagar").text("S/. " + total.toFixed(2));
         }
         function obtenerCantidadProductos() {
             $("#cantidad-articulos").text(" " + $("#productos-seleccionados > div.card").length.toString() + " ");

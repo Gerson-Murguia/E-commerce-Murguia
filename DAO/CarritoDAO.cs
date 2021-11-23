@@ -12,22 +12,22 @@ using Proyecto05ciclo.Models;
 
 namespace Proyecto05ciclo.Logica
 {
-    public class CarritoLogica
+    public class CarritoDAO
     {
-        private static CarritoLogica _instancia=null;
+        private static CarritoDAO _instancia=null;
 
-        public CarritoLogica()
+        public CarritoDAO()
         {
 
         }
         //SINGLETON
-        public static CarritoLogica Instancia
+        public static CarritoDAO Instancia
         {
             get
             {
                 if (_instancia==null)
                 {
-                    _instancia=new CarritoLogica();
+                    _instancia=new CarritoDAO();
                 }
                 return _instancia;
             }

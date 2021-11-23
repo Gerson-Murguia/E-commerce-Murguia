@@ -10,23 +10,23 @@ using Proyecto05ciclo.Models;
 
 namespace Proyecto05ciclo.Logica
 {
-    public class CompraLogica
+    public class CompraDAO
     {
-        private static CompraLogica _instancia = null;
+        private static CompraDAO _instancia = null;
 
-        public CompraLogica()
+        public CompraDAO()
         {
 
         }
 
         //SINGLETON 
-        public static CompraLogica Instancia
+        public static CompraDAO Instancia
         {
             get
             {
                 if (_instancia==null)
                 {
-                    _instancia=new CompraLogica();
+                    _instancia=new CompraDAO();
                 }
 
                 return _instancia;
