@@ -16,6 +16,8 @@ namespace Proyecto05ciclo.Logica
     {
         private static CarritoDAO _instancia=null;
 
+        //Fuinciona como una clase item de carrito relaciona un producto con un usuario
+
         public CarritoDAO()
         {
 
@@ -157,21 +159,28 @@ namespace Proyecto05ciclo.Logica
             List<Compra> rptDetalleCompra = new List<Compra>();
             using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
             {
+                //devuelve un xml con la compra y detalle compra anidado
                 SqlCommand cmd = new SqlCommand("sp_ObtenerCompra", oConexion);
                 cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-
                 try
                 {
                     oConexion.Open();
+
+                    //para leer el xml
                     using (XmlReader dr = cmd.ExecuteXmlReader())
                     {
                         while (dr.Read())
                         {
+                            //crea el xml en base a un xmlreader
                             XDocument doc = XDocument.Load(dr);
+
+                            //el row padre es DATA
                             if (doc.Element("DATA") != null)
                             {
+                                //compra es child directo de data, para cada compra crea clase compra
+                                //devuelve un ienumerable
                                 rptDetalleCompra = (from c in doc.Element("DATA").Elements("COMPRA")
                                                     select new Compra()
                                                     {
@@ -194,7 +203,6 @@ namespace Proyecto05ciclo.Logica
                                 rptDetalleCompra = new List<Compra>();
                             }
                         }
-
                         dr.Close();
 
                     }
@@ -208,7 +216,5 @@ namespace Proyecto05ciclo.Logica
                 }
             }
         }
-
-
     }
 }

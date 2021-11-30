@@ -9,20 +9,20 @@ using Proyecto05ciclo.Models;
 
 namespace Proyecto05ciclo.Logica
 {
-    public class ProductoLogica
+    public class ProductoDAO
     {
-        private static ProductoLogica _instancia;
+        private static ProductoDAO _instancia;
 
-        public ProductoLogica() {
+        public ProductoDAO() {
 
         }
         //SINGLETON
-        public static ProductoLogica Instancia{
+        public static ProductoDAO Instancia{
             get
             {
                 if (_instancia==null)
                 {
-                    _instancia=new ProductoLogica();
+                    _instancia=new ProductoDAO();
                 }
                 return _instancia;
             }

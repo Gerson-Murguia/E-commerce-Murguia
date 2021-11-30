@@ -42,6 +42,7 @@ namespace Proyecto05ciclo.Logica
             {
                 try
                 {
+                    // se hacen los query por cada detalle compra
                     StringBuilder query = new StringBuilder();
                     foreach (DetalleCompra dc in oCompra.oDetalleCompra) {
                         query.AppendLine("insert into detalle_compra(IdCompra,IdProducto,Cantidad,Total) values (¡idcompra!," + dc.IdProducto +","+dc.Cantidad+","+dc.Total+")");
