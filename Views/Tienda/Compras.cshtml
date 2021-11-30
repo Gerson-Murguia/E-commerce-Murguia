@@ -16,7 +16,7 @@
 <div class="row mt-2">
     <div class="col-12">
         <div class="card">
-            <div class="card-body bg-secondary">
+            <div class="card-body bg-dark   ">
 
                 <div class="accordion" id="accordion_articulos">
 
@@ -43,7 +43,7 @@
                 url: '@Url.Action("ObtenerCompra", "Tienda")',
                 type: "GET",
                 data: null,
-                dataType: "json",   
+                dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     console.log(data)
@@ -64,11 +64,12 @@
 
                             var accordion_body = $("<div>").addClass("accordion-body");
                             $.each(v.oDetalleCompra, function (x, dc) {
+                                //para cada item carrito
                                 var d_flex = $("<div>").addClass("d-flex flex-row border p-2").append(
                                                 $("<img>").attr({ "src": "data:image/" + dc.oProducto.extension + ";base64," + dc.oProducto.base64,"width":"50"}),
-                                                $("<div>").addClass("p-2 bd-highlight").text(dc.oProducto.Nombre),
-                                                $("<div>").addClass("p-2 bd-highlight ms-auto").text("Cantidad: " + dc.Cantidad),
-                                                $("<div>").addClass("p-2 bd-highlight").text("Total: S/. " + dc.Total)
+                                                $("<div>").addClass("p-2").text(dc.oProducto.Nombre),
+                                                $("<div>").addClass("p-2 ms-auto").text("Cantidad: " + dc.Cantidad),
+                                                $("<div>").addClass("p-2 ").text("Total: S/. " + dc.Total)
                                             )
                                 accordion_body.append(d_flex);
 
@@ -76,19 +77,20 @@
 
                             accordion_body.append(
                                 $("<div>").addClass("d-flex justify-content-between bg-light border").append(
-                                    $("<div>").addClass("p-2 bd-highlight").text("Total Importe:"),
-                                    $("<div>").addClass("p-2 bd-highlight").text("S/. " + v.Total)
+                                    $("<div>").addClass("p-2").text("Total Importe:"),
+                                    $("<div>").addClass("p-2").text("S/. " + v.Total)
                                 )
                             );
-
+                            
                             accordion_collapse.append(accordion_body);
+
                             accordion_item.append(accordion_header);
                             accordion_item.append(accordion_collapse);
 
 
                             $("#accordion_articulos").append(accordion_item);
                         });
-
+                        s
                     }
                 },
                 error: function (error) {
@@ -99,7 +101,7 @@
                 },
             });
         })
-
+         
     </script>
 }
 

@@ -130,7 +130,7 @@ namespace Proyecto05ciclo.Controllers
         {
             List<Producto> oLista = new List<Producto>();
 
-            oLista = ProductoLogica.Instancia.Listar();
+            oLista = ProductoDAO.Instancia.Listar();
             //para cada producto en la lista es remplazado por productos con mas datos aptos para frontend json
             oLista = (from o in oLista
                       select new Producto()
@@ -179,7 +179,7 @@ namespace Proyecto05ciclo.Controllers
                 //si el id producto es 0¿? se registra, sino se modifica
                 if (oProducto.IdProducto == 0)
                 {
-                    int id = ProductoLogica.Instancia.Registrar(oProducto);
+                    int id = ProductoDAO.Instancia.Registrar(oProducto);
                     oProducto.IdProducto = id;
                     //Si el id producto es =0 el resultado es false sino true
                     //oresponse.resultado = oProducto.IdProducto == 0 ? false : true;
@@ -188,7 +188,7 @@ namespace Proyecto05ciclo.Controllers
                 }
                 else
                 {
-                    oresponse.resultado = ProductoLogica.Instancia.Modificar(oProducto);
+                    oresponse.resultado = ProductoDAO.Instancia.Modificar(oProducto);
                 }
 
                 //Si la imagen es diferente de null y el id producto ya existe o se acaba de crear
@@ -203,7 +203,7 @@ namespace Proyecto05ciclo.Controllers
                     //Ruta fisica de la RutaImagen "D://~/Imagenes/Productos/+idproducto+.jpg")
                     imagenArchivo.SaveAs(physicalPath + "/" + oProducto.IdProducto.ToString() + extension );
 
-                    oresponse.resultado = ProductoLogica.Instancia.ActualizarRutaImagen(oProducto);
+                    oresponse.resultado = ProductoDAO.Instancia.ActualizarRutaImagen(oProducto);
                 }
 
             }
@@ -220,7 +220,7 @@ namespace Proyecto05ciclo.Controllers
         public JsonResult EliminarProducto(int id)
         {
             bool respuesta;
-            respuesta = ProductoLogica.Instancia.Eliminar(id);
+            respuesta = ProductoDAO.Instancia.Eliminar(id);
             return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
         }
     }

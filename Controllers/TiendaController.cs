@@ -14,14 +14,48 @@ namespace Proyecto05ciclo.Controllers
     {
         private static Usuario oUsuario;
         // GET: Tienda
-        public ActionResult Index()
+        public ActionResult Index(int idcategoria = 0,int p=0)
         {
             if (Session["Usuario"] == null)
                 return RedirectToAction("Index", "Login");
             else
                 oUsuario = (Usuario)Session["Usuario"];
+                   
+            //regresar los productos sin ajax
 
-            return View();
+            List<Producto> oLista = new List<Producto>();
+
+            oLista = ProductoDAO.Instancia.Listar();
+
+            //se filtra por categoria
+            if (idcategoria != 0){
+                oLista = oLista.Where(x => x.oCategoria.IdCategoria == idcategoria).ToList();
+            }
+
+            oLista = (from o in oLista
+                      select new Producto()
+                      {
+                          IdProducto = o.IdProducto,
+                          Nombre = o.Nombre,
+                          Descripcion = o.Descripcion,
+                          oMarca = o.oMarca,
+                          oCategoria = o.oCategoria,
+                          Precio = o.Precio,
+                          Stock = o.Stock,
+                          RutaImagen = o.RutaImagen,
+                          base64 = utilidades.convertirBase64(Server.MapPath(o.RutaImagen)),
+                          extension = Path.GetExtension(o.RutaImagen).Replace(".", ""),
+                          Activo = o.Activo
+                      }).ToList();
+
+            int filas=8;
+            int cant=oLista.Count();
+            int nropags=cant%filas>0?cant/filas+1:cant/filas;
+            ViewBag.nropags=nropags;
+            ViewBag.p=p;
+            ViewBag.categoria=idcategoria;
+
+            return View(oLista.Skip(p*filas).Take(filas));
         }
 
         //VISTA
@@ -35,7 +69,7 @@ namespace Proyecto05ciclo.Controllers
             Producto oProducto = new Producto();
             List<Producto> oLista = new List<Producto>();
 
-            oLista = ProductoLogica.Instancia.Listar();
+            oLista = ProductoDAO.Instancia.Listar();
             //LINQ QUERY SYNTAX
             //de cada producto en la lista, donde el id producto, sea igual al parametro, lo selecciona y crea el oproducto
             //muestra los detalles del producto, si es cliente puede agregar al carrito
@@ -80,40 +114,21 @@ namespace Proyecto05ciclo.Controllers
             return View();
         }
 
-        [HttpGet]
-        public JsonResult ObtenerCompra()
-        {
-            List<Compra> oLista = new List<Compra>();
-
-            oLista = CarritoDAO.Instancia.ObtenerCompra(oUsuario.IdUsuario);
-
-            oLista = (from c in oLista
-                select new Compra()
-                {
-                    Total = c.Total,
-                    FechaTexto = c.FechaTexto,
-                    oDetalleCompra = (from dc in c.oDetalleCompra
-                        select new DetalleCompra() {
-                            oProducto = new Producto() {
-                                oMarca = new Marca() {Descripcion = dc.oProducto.oMarca.Descripcion },
-                                Nombre = dc.oProducto.Nombre,
-                                RutaImagen = dc.oProducto.RutaImagen,
-                                base64 = utilidades.convertirBase64(Server.MapPath(dc.oProducto.RutaImagen)),
-                                extension = Path.GetExtension(dc.oProducto.RutaImagen).Replace(".", ""),
-                            },
-                            Total = dc.Total,
-                            Cantidad = dc.Cantidad
-                        }).ToList()
-                }).ToList();
-            return Json(new { lista = oLista }, JsonRequestBehavior.AllowGet);
-        }
+        
+        //p es pagina de inicio
         
         [HttpPost]
         public JsonResult ListarProducto(int idcategoria = 0,int p=0)
         {
             List<Producto> oLista = new List<Producto>();
 
-            oLista = ProductoLogica.Instancia.Listar();
+            oLista = ProductoDAO.Instancia.Listar();
+
+            //se filtra por categoria
+            if (idcategoria != 0){
+                oLista = oLista.Where(x => x.oCategoria.IdCategoria == idcategoria).ToList();
+            }
+
             oLista = (from o in oLista
                       select new Producto()
                       {
@@ -130,19 +145,11 @@ namespace Proyecto05ciclo.Controllers
                           Activo = o.Activo
                       }).ToList();
 
-            if (idcategoria != 0){
-                oLista = oLista.Where(x => x.oCategoria.IdCategoria == idcategoria).ToList() ;
-            }/*
-            int filas=8;
+            int filas=9;
             int cant=oLista.Count();
             int nropags=cant%filas>0?cant/filas+1:cant/filas;
             ViewBag.nropags=nropags;
-            ViewBag.p=p;
-             return View(productos.filtro(nombre).Skip(p*filas).Take(filas));
-*/
-
-
-            var json=Json(new {data = oLista}, JsonRequestBehavior.AllowGet);
+            var json=Json(new {data = oLista.Skip(p*filas).Take(filas),p=p,categoria=idcategoria,nropag=nropags}, JsonRequestBehavior.AllowGet);
             json.MaxJsonLength = int.MaxValue;
             return json;
         }
@@ -239,6 +246,8 @@ namespace Proyecto05ciclo.Controllers
             oLista = UbigeoLogica.Instancia.ObtenerDistrito(_IdProvincia,_IdDepartamento);
             return Json(new { lista = oLista }, JsonRequestBehavior.AllowGet);
         }
+        
+        //Compras
 
         [HttpPost]
         public JsonResult RegistrarCompra(Compra oCompra)
@@ -250,7 +259,35 @@ namespace Proyecto05ciclo.Controllers
             return Json(new { resultado = respuesta }, JsonRequestBehavior.AllowGet);
         }
 
-        //
+        [HttpGet]
+        public JsonResult ObtenerCompra()
+        {
+            List<Compra> oLista = new List<Compra>();
+
+            //error sin compras
+            oLista = CarritoDAO.Instancia.ObtenerCompra(oUsuario.IdUsuario);
+
+
+            oLista = (from c in oLista
+                select new Compra()
+                {
+                    Total = c.Total,
+                    FechaTexto = c.FechaTexto,
+                    oDetalleCompra = (from dc in c.oDetalleCompra
+                        select new DetalleCompra() {
+                            oProducto = new Producto() {
+                                oMarca = new Marca() {Descripcion = dc.oProducto.oMarca.Descripcion },
+                                Nombre = dc.oProducto.Nombre,
+                                RutaImagen = dc.oProducto.RutaImagen,
+                                base64 = utilidades.convertirBase64(Server.MapPath(dc.oProducto.RutaImagen)),
+                                extension = Path.GetExtension(dc.oProducto.RutaImagen).Replace(".", ""),
+                            },
+                            Total = dc.Total,
+                            Cantidad = dc.Cantidad
+                        }).ToList()
+                }).ToList();
+            return Json(new { lista = oLista }, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

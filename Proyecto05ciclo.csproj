@@ -1811,6 +1811,8 @@
     <Content Include="Imagenes\Productos\7.jpg" />
     <Content Include="Imagenes\Productos\8.jpg" />
     <Content Include="Imagenes\Productos\9.jpg" />
+    <Content Include="Imagenes\Pago\master.png" />
+    <Content Include="Imagenes\Pago\visa.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
