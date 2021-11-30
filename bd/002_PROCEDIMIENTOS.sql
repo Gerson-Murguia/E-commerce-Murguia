@@ -294,7 +294,6 @@ create proc sp_ObtenerCompra(
 as
 begin
 select c.Total,convert(char(10),c.FechaCompra,103)[Fecha],
-
 (select m.Descripcion, p.Nombre,p.RutaImagen,dc.Total,dc.Cantidad from DETALLE_COMPRA dc
 inner join PRODUCTO p on p.IdProducto = dc.IdProducto
 inner join MARCA m on m.IdMarca = p.IdMarca
