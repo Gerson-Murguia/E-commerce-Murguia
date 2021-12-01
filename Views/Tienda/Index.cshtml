@@ -28,9 +28,12 @@
                                     <button class="btn btn-outline-dark mt-auto btn-detalle" data-elemento="@Json.Encode(item)">
                                         Ver Detalle
                                     </button>
+                                    @if (((Proyecto05ciclo.Models.Usuario)Session["Usuario"]).EsAdministrador == false)
+                                    {
                                     <button class="btn btn-outline-dark  mt-auto btn-agregar-carrito" data-idproducto="@item.IdProducto">
                                         Agregar al carrito
                                     </button>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -41,11 +44,11 @@
             {
                 <nav aria-label="Paginacion" class="">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item">@Html.ActionLink("|<", "Index", new { p = 0,idcategoria=ViewBag.categoria}, new { @class = "page-link" })</li>
-                        <li class="page-item">@Html.ActionLink("<<", "Index", new { p = (ViewBag.p - 1 < 0 ? 0 : ViewBag.p - 1),idcategoria=ViewBag.categoria }, new { @class = "page-link" })</li>
-                        @Html.Label(((int)ViewBag.p + 1).ToString(), new { @class = "page-link" })
-                        <li class="page-item">@Html.ActionLink(">>", "Index", new { p = (ViewBag.p + 1 > ViewBag.nropags - 1 ? ViewBag.nropags - 1 : ViewBag.p + 1), idcategoria=ViewBag.categoria}, new { @class = "page-link " })</li>
-                        <li class="page-item">@Html.ActionLink(">|", "Index", new { p = ViewBag.nropags - 1 ,idcategoria=ViewBag.categoria}, new { @class = "page-link" })</li>
+                        <li class="page-item">@Html.ActionLink("|<", "Index", new { p = 0,idcategoria=ViewBag.categoria}, new { @class = "page-link text-dark" })</li>
+                        <li class="page-item">@Html.ActionLink("<<", "Index", new { p = (ViewBag.p - 1 < 0 ? 0 : ViewBag.p - 1),idcategoria=ViewBag.categoria }, new { @class = "page-link text-dark" })</li>
+                        @Html.Label(((int)ViewBag.p + 1).ToString(), new { @class = "page-link text-dark" })
+                        <li class="page-item">@Html.ActionLink(">>", "Index", new { p = (ViewBag.p + 1 > ViewBag.nropags - 1 ? ViewBag.nropags - 1 : ViewBag.p + 1), idcategoria=ViewBag.categoria}, new { @class = "page-link text-dark" })</li>
+                        <li class="page-item">@Html.ActionLink(">|", "Index", new { p = ViewBag.nropags - 1 ,idcategoria=ViewBag.categoria}, new { @class = "page-link text-dark" })</li>
                     </ul>
                 </nav>
             }
