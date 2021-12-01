@@ -71,6 +71,39 @@ namespace Proyecto05ciclo.Logica
             return u;
         }
 
+        public int Modificar(Usuario u){
+            int respuesta=0;
+            using (SqlConnection oConexion=new SqlConnection(Conexion.CN))
+            {
+                try
+                {
+                    SqlCommand cmd=new SqlCommand("sp_ModificarUsuario",oConexion);
+                    cmd.Parameters.AddWithValue("IdUsuario", u.IdUsuario);
+                    cmd.Parameters.AddWithValue("Nombres", u.Nombres);
+                    cmd.Parameters.AddWithValue("Apellidos", u.Apellidos);
+                    cmd.Parameters.AddWithValue("Correo", u.Correo);
+                    cmd.Parameters.AddWithValue("Password", u.Password);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction=ParameterDirection.Output;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    //retorna la identidad del ultimo valor insertado
+                    respuesta = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine("Entro al catch de registrar Usuario " + e.Message);
+                    respuesta = 0;
+                }
+            }
+
+            return respuesta;
+        }
+
         public int Registrar(Usuario oUsuario)
         {
             int respuesta = 0;

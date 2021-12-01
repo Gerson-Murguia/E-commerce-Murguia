@@ -114,8 +114,30 @@ namespace Proyecto05ciclo.Controllers
             return View();
         }
 
+        public ActionResult Usuario(){ 
+
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Index", "Login");
+            else
+                oUsuario = (Usuario)Session["Usuario"];
+
+            return View(oUsuario);    
+        }
         
         //p es pagina de inicio
+        [HttpPost]
+        public ActionResult Usuario(Usuario u){ 
+
+           int respuesta=UsuarioDAO.Instancia.Modificar(u);
+           if(respuesta==0){
+                ViewBag.mensaje="Error al registrar";
+                }
+           else{
+                ViewBag.mensaje="Datos guardados";
+                Session["Usuario"]=UsuarioDAO.Instancia.Obtener(u.Correo,u.Password);
+                }
+            return View();
+        }
         
         [HttpPost]
         public JsonResult ListarProducto(int idcategoria = 0,int p=0)

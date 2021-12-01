@@ -306,3 +306,27 @@ FOR XML PATH('COMPRA'), ROOT('DATA')
 end
 
 exec sp_ObtenerCompra 2
+go
+
+create procedure [dbo].[sp_ModificarUsuario](
+@IdUsuario int,
+@Nombres varchar(100),
+@Apellidos varchar(100),
+@Correo varchar(100),
+@Password varchar(100),
+@Resultado bit output
+)
+as
+begin
+	SET @Resultado = 1
+	IF NOT EXISTS (SELECT * FROM USUARIO WHERE Usuario.Correo =@Correo and IdUsuario != @IdUsuario)
+		update USUARIO set 
+		Nombres = @Nombres,
+		Apellidos=@Apellidos,
+		Correo=@Correo,
+		Contrasena=@Password
+		where IdUsuario = @IdUsuario
+	ELSE
+		SET @Resultado = 0
+
+end

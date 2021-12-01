@@ -2177,6 +2177,7 @@
     <Content Include="Views\Tienda\Compras.cshtml" />
     <Content Include="Views\Shared\_Layout_Tienda.cshtml" />
     <Content Include="Views\Home\Usuario.cshtml" />
+    <Content Include="Views\Tienda\Usuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -44,6 +44,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="@Url.Action("Index","Tienda")">Ir a Tienda</a></li>
                                 <li><a class="dropdown-item" href="@Url.Action("Compras","Tienda")">Mis Compras</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Usuario","Tienda")">Mi Perfil</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="@Url.Action("CerrarSesion","Tienda")">Cerrar Sesión</a></li>
                             </ul>
@@ -213,6 +214,8 @@
             </div>
         </div>
     </div>
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
