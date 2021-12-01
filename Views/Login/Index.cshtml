@@ -74,16 +74,17 @@
                         <div class="mb-4">
                             <button type="submit" class="btn btn-outline-light w-100">Iniciar Sesion</button>
                         </div>
-                    </form>
-                    <div class="form-floating mb-2 mt-2">
-                        @{if (ViewBag.Error != null)
-                            {
-                                <div class="alert alert-danger" role="alert">
-                                    @ViewBag.Error
-                                </div>
+                        <div class="form-floating mb-2 mt-2">
+                            @{if (ViewBag.Error != null)
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewBag.Error
+                                    </div>
+                                }
                             }
-                        }
-                    </div>
+                        </div>
+                    </form>
+                    
                     <!--
     <p class="font-weight-bold text-center text-muted">O inicia sesión con:</p>
     <div class="d-flex justify-content-around">

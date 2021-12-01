@@ -26,31 +26,31 @@
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputFirstName" name="NNombres" type="text" placeholder="Nombres" value="@Html.DisplayTextFor(model => model.Nombres)" />
+                                                    <input class="form-control" id="inputFirstName" required="required" name="NNombres" type="text" placeholder="Nombres" value="@Html.DisplayTextFor(model => model.Nombres)" />
                                                     <label for="inputFirstName">Nombres</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control" id="inputLastName" name="NApellidos" type="text" placeholder="Apellidos" value="@Html.DisplayTextFor(model => model.Apellidos)" />
+                                                    <input class="form-control" id="inputLastName" required="required" name="NApellidos" type="text" placeholder="Apellidos" value="@Html.DisplayTextFor(model => model.Apellidos)" />
                                                     <label for="inputLastName">Apellidos</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="email" name="NCorreo" placeholder="name@example.com" value="@Html.DisplayTextFor(model => model.Correo)" />
+                                            <input class="form-control" id="inputEmail" type="email" required="required" name="NCorreo" placeholder="name@example.com" value="@Html.DisplayTextFor(model => model.Correo)" />
                                             <label for="inputEmail">Correo</label>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputPassword" name="NPassword" type="password" placeholder="Contraseña" value="@Html.DisplayTextFor(model => model.Password)" />
+                                                    <input class="form-control" id="inputPassword" required="required" name="NPassword" type="password" placeholder="Contraseña" value="@Html.DisplayTextFor(model => model.Password)" />
                                                     <label for="inputPassword">Password</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputPasswordConfirm" name="NConfirmarPassword" type="password" placeholder="Confirmar contraseña" value="@Html.DisplayTextFor(model => model.ConfirmarPassword)" />
+                                                    <input class="form-control" id="inputPasswordConfirm" required="required" name="NConfirmarPassword" type="password" placeholder="Confirmar contraseña" value="@Html.DisplayTextFor(model => model.ConfirmarPassword)" />
                                                     <label for="inputPasswordConfirm">Confirmar Contraseña</label>
                                                 </div>
                                             </div>

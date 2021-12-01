@@ -8,22 +8,22 @@ using Proyecto05ciclo.Models;
 
 namespace Proyecto05ciclo.Logica
 {
-    public class UsuarioLogica
+    public class UsuarioDAO
     {
-        private static UsuarioLogica _instancia = null;
+        private static UsuarioDAO _instancia = null;
 
-        public UsuarioLogica() {
+        public UsuarioDAO() {
 
         }
 
         //propiedad con USO DE PATRON SINGLETON
-        public static UsuarioLogica Instancia
+        public static UsuarioDAO Instancia
         {
             get
             {
                 if (_instancia==null)
                 {
-                    _instancia=new UsuarioLogica();
+                    _instancia=new UsuarioDAO();
                 }
 
                 return _instancia;

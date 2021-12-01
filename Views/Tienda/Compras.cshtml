@@ -10,13 +10,13 @@
 </style>
 <div class="row mt-5 pt-4">
     <div class="col-12">
-        <h4>Mis Compras</h4>
+        <h3>Mis Compras</h3>
     </div>
 </div>
 <div class="row mt-2">
     <div class="col-12">
         <div class="card">
-            <div class="card-body bg-dark   ">
+            <div class="card-body bg-dark">
 
                 <div class="accordion" id="accordion_articulos">
 
@@ -52,15 +52,15 @@
                             var accordion_item = $("<div>").addClass("accordion-item");
 
                             var accordion_header = $("<div>").addClass("accordion-header").append(
-                                $("<div>").addClass("accordion-button collapsed").attr({ "data-bs-toggle": "collapse", "data-bs-target": "#collapse" + i, "aria-expanded": "false" }).append(
+                                $("<div>").addClass("accordion-button collapsed bg-dark text-white").attr({ "data-bs-toggle": "collapse", "data-bs-target": "#collapse" + i, "aria-expanded": "false" }).append(
                                     $("<div>").addClass("d-flex justify-content-between w-100").append(
-                                        $("<div>").text("N° " + zeroFill(i + 1, 6)),
+                                        $("<div>").text("N° " + zeroFill(i + 1, 5)),
                                         $("<div>").addClass("me-4").text("Fecha Compra: " + v.FechaTexto)
                                     )
                                 )
                             );
 
-                            var accordion_collapse = $("<div>").attr({ "id": "collapse" + i }).addClass("accordion-collapse collapse");
+                            var accordion_collapse = $("<div>").attr({ "id": "collapse" + i }).attr({"data-bs-parent":"#accordion_articulos"}).addClass("accordion-collapse collapse");
 
                             var accordion_body = $("<div>").addClass("accordion-body");
                             $.each(v.oDetalleCompra, function (x, dc) {
@@ -83,10 +83,8 @@
                             );
                             
                             accordion_collapse.append(accordion_body);
-
                             accordion_item.append(accordion_header);
                             accordion_item.append(accordion_collapse);
-
 
                             $("#accordion_articulos").append(accordion_item);
                         });

@@ -21,11 +21,11 @@
                         <div id="productos-seleccionados">
                             <!--Aqui van los productos del carrito-->
                         </div>
-                        <a class="btn btn-danger" href="@Url.Action("Index","Tienda")">Volver al Inicio</a>
+                        <a class="btn btn-dark" href="@Url.Action("Index","Tienda")">Volver al Inicio</a>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card bg-light">
+                    <div class="card bg-dark text-white">
                         <div class="card-body">
                             <div class="row">
 
@@ -157,10 +157,7 @@
                                     )
                                 )
                             ).appendTo("#productos-seleccionados");
-
-
                         })
-
                         obtenerPreciosPago();
                         obtenerCantidadProductos();
                     }
@@ -240,6 +237,7 @@
             $("#cantidad-articulos").text(" " + $("#productos-seleccionados > div.card").length.toString() + " ");
 
             if ($("#productos-seleccionados > div.card").length == 0) {
+               //si no hay items en el carrito
                $("#btnProcesarPago").prop("disabled", true);
             }
         }

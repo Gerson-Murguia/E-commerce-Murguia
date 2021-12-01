@@ -14,6 +14,7 @@ namespace Proyecto05ciclo.Controllers
         // GET: Login
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -25,13 +26,14 @@ namespace Proyecto05ciclo.Controllers
         {
             Usuario oUsuario;
 
-            oUsuario = UsuarioLogica.Instancia.Obtener(NCorreo, NPassword);
+            oUsuario = UsuarioDAO.Instancia.Obtener(NCorreo, NPassword);
 
             if (oUsuario==null)
             {
                 ViewBag.Error = "Correo o contraseña incorrecta";
                 return View();
             }
+
             FormsAuthentication.SetAuthCookie(oUsuario.Correo,false);
             Session["Usuario"] = oUsuario;
 
@@ -74,7 +76,7 @@ namespace Proyecto05ciclo.Controllers
             {
                 //la id del ultimo usuario registrado(scope identity),
                 //del parametro "respuesta" con direccion output
-                int idusuario_respuesta = UsuarioLogica.Instancia.Registrar(rUsuario);
+                int idusuario_respuesta = UsuarioDAO.Instancia.Registrar(rUsuario);
                 if (idusuario_respuesta==0)
                 {
                     ViewBag.Error = "Error al registrar";

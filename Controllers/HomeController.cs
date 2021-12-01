@@ -145,7 +145,7 @@ namespace Proyecto05ciclo.Controllers
                           RutaImagen = o.RutaImagen,
                           base64 = utilidades.convertirBase64(Server.MapPath(o.RutaImagen)),
                           //devuelve la extension con .,con replace se cambia a ninguno
-                          extension = Path.GetExtension(o.RutaImagen).Replace(".", ""),
+                          extension = Path.GetExtension(o.RutaImagen).Replace(".", ""),//jpg
                           Activo = o.Activo
                       }).ToList();
 
