@@ -286,7 +286,6 @@ namespace Proyecto05ciclo.Controllers
         {
             List<Compra> oLista = new List<Compra>();
 
-            //error sin compras
             oLista = CarritoDAO.Instancia.ObtenerCompra(oUsuario.IdUsuario);
 
 
